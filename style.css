@@ -185,6 +185,7 @@ footer {
     margin: 1.5rem;
     padding: 0.5rem;
     font-size: 1.2rem;
+    text-shadow: 10px 8px 4px #000000;
   }
 
   .navbar .navbar-nav a::after {
