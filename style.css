@@ -6,145 +6,203 @@
   border: none;
   text-decoration: none;
 }
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.navbar {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: rgba(1, 1, 1, 0.8);
+  border-bottom: 1px solid rgb(255, 0, 0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
 }
 
-nav ul li {
-  margin-right: 10px;
-}
-
-nav ul li a {
+.navbar .navbar-nav a {
   color: #fff;
-  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: rgb(255, 0, 0)
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid rgb(255, 0, 0)
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra a {
+  color: #fff;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+  color: rgb(255, 0, 0)
+}
+
+#hamburger-menu {
+  display: none;
 }
 
 .banner {
   background-image: url("img/FC.png");
   background-size: cover;
   background-position: center;
-  height: 350px;
+  height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  color: #fff;
-  text-align: center;
-  font-size: 24px;
+  align-items: center;
 }
 
-.about,
-.highlight,
-.contact {
-  padding: 8rem 7% 1.4rem;
-  text-align: center;
+.banner h1 {
+  color: #ffffff;
+  font-size: 70px;
+  font-weight: bold;
+  text-shadow: 10px 8px 4px #000000;
+}
+
+.about {
+  padding: 20px;
+}
+
+.about h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.about p {
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
 .highlight {
-  background-color: #f2f2f2;
   padding: 20px;
 }
 
-/* contact start */
-.contact .row {
-  display: flex;
-  margin-top: 2rem;
-  background-color: #333;
+.highlight h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-.contact .row .map {
-  flex: 1 1 45rem;
-  width: 100%;
-  object-fit: cover;
+.highlight p {
+  font-size: 18px;
+  margin-bottom: 20px;
 }
-
-.contact .row form {
-  flex: 1 1 45rem;
-  padding: 5rem 2rem;
-  text-align: center;
-}
-
-.contact .row form .input-group {
-  display: flex;
-  align-items: center;
-  margin-top: 2rem;
-  background-color: black;
-  border: 1px solid #34c759;
-  box-shadow: 1px 1px 15px #34c759;
-  padding-left: 2rem;
-}
-
-.contact .row form .input-group input {
-  width: 100%;
-  padding: 2rem;
-  font-size: 1.7rem;
-  background: none;
-  color: #fff;
-}
-
-.contact .row form .btn {
-  margin-top: 3rem;
-  display: inline-block;
-  padding: 1rem 3rem;
-  font-size: 1.7rem;
-  color: #000000;
-  background-color: rgb(255, 255, 255);
-  cursor: pointer;
-}
-.contact .row form .btn:hover {
-  color: yellow;
-  background-color: #34c759;
-}
-.contact .row .input-group {
-  color: #34c759;
-}
-.contact .row form .label {
-  display: block;
-}
-/* contact end */
 
 footer {
   background-color: #333;
+  padding: 20px;
   color: #fff;
-  padding: 10px;
   text-align: center;
 }
-.sosmed h1 {
-  color: white;
-  font-size: 20px;
-  padding: 20px;
+
+.sosmed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.icon {
+.sosmed h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.sosmed .icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
   border: solid 1px white;
   border-radius: 5px;
   padding: 10px;
 }
 
-.icon a {
-  color: white;
+.sosmed .icon a {
+  display: block;
+  padding: 10px;
+  color: #fff;
   text-decoration: none;
-  padding: 20px;
 }
 
-.icon a:hover {
+.sosmed .icon a:hover {
   color: rgb(243, 187, 34);
+}
+
+.sosmed .icon a i {
+  font-size: 24px;
+}
+
+@media (min-width: 768px) {
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #333;
+    width: 20rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    color: rgb(255, 255, 255);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+
+@media (min-width: 992px) {
+  .banner {
+    height: 100vh;
+  }
+  .banner h1 {
+    color: #ffffff;
+    font-size: 150px;
+    font-weight: bold;
+    text-shadow: 10px 8px 4px #000000;
+  }
+}
+
+@media (min-width: 1200px) {
+  .banner {
+    height: 100vh;
+  }
 }
